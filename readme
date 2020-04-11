@@ -1,0 +1,41 @@
+ublic class HelloWorld {
+
+    public static void m1(){
+        c1();
+        HelloWorld h1 = new HelloWorld();
+        h1.c2();
+
+    }
+    public void m2(){
+        c1();//HelloWorld.c1();
+        c2();//this.c1();
+    }
+
+    public static void main(String[] args){
+        c1();
+        m1();
+
+        HelloWorld h2 = new HelloWorld();
+        h2.c2();
+        h2.m2();
+        h2 =null;
+        h2.c1(); // c1 为带static的方法， 可以采用 "类名."，也可以用实例对象的方式访问，当h2为空值后，写在前面，系统默认h2就是用类名.的方式访问的
+
+        System.out.println(h2.a);
+        System.out.println(b);
+
+    }
+
+    int a =10 ;
+    static int b = 100 ;
+
+    public static void c1(){
+        System.out.println("c1");
+    }
+
+    public void c2(){
+        System.out.println("c2");
+    }
+
+}
+//总结来说就是静态调静态不用 构建实例对象， 实例方法调 动态方法和静态方法（实例和非实例）都可以不用构建实例对象。
